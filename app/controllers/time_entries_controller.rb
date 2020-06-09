@@ -5,6 +5,7 @@ class TimeEntriesController < ApplicationController
   # GET /time_entries.json
   def index
     @time_entries = TimeEntry.all
+    @current_user = current_user
   end
 
   # GET /time_entries/1
