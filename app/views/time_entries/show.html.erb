@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @time_entry.author_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @time_entry.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @time_entry.amount %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @time_entry.group_id %>
+</p>
+
+<%= link_to 'Edit', edit_time_entry_path(@time_entry) %> |
+<%= link_to 'Back', time_entries_path %>
