@@ -32,6 +32,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '~>0.8'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'capybara', '~> 3.32', '>= 3.32.2'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'factory_bot_rails', '~> 5.2'
+  gem 'shoulda-matchers', '~> 4.3'
 end
 
 group :development do
