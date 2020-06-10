@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @group.user_id %>
+  <strong>Creator:</strong>
+  <%= @group.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
