@@ -53,3 +53,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'font-awesome-sass', '~> 5.13'
