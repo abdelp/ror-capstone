@@ -1,10 +1,14 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<div class="row bg-main">
+  <h1 class="text-center text-uppercase page-title">Login</h1>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+    <%= form_with(url: login_path, scope: :session, local: true, class: 'form') do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Username' %>
+      </div>
+
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
