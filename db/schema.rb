@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_234153) do
+ActiveRecord::Schema.define(version: 2020_06_10_155326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_234153) do
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.index ["group_id"], name: "index_time_entries_on_group_id"
   end
 
