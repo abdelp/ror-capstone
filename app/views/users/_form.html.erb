@@ -1,5 +1,4 @@
 <div class="row text-center">
-<p><%= @r %></p>
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: user, local: true, class: 'form') do |form| %>
       <%= form.hidden_field(:gravatar_url_cache) %>
@@ -18,8 +17,11 @@
 
       <div class="form-group">
         <div class="gravatar_edit">
-          <%= image_tag('default-profile.png', alt: "default", class: "gravatar") %>
-          <%= form.file_field :gravatar_url, placeholder: 'Upload picture' %>
+          <div class="avatar-wrapper">
+            <%= image_tag('default-profile.png', alt: "default", class: "gravatar", id: "img-prev") %>
+          </div>
+          <%= button_tag "Upload image", class: "btn btn-default", type: "button",id: "change-img-btn" %>
+          <%= form.file_field :gravatar_url, placeholder: 'Upload picture', id: "change-img-field", onchange: "changeImg(this);" %>
         </div>
       </div>
 
