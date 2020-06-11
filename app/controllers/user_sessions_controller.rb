@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   def new
+    session[:forwarding_url] = nil
     render layout: 'logged_out'
   end
 
@@ -16,6 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to login_path
   end
 end

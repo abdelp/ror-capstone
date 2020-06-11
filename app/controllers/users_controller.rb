@@ -1,14 +1,7 @@
-require 'digest/sha1'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
-  before_action :check_configuration, only: [:new]
-
-  def check_configuration
-    render 'configuration_missing' if Cloudinary.config.api_key.blank?
-  end
-
   def index
     @users = User.all
   end
@@ -27,9 +20,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: user_params[:name])
-    uploaded_file = Cloudinary::Uploader.upload(user_params[:gravatar_url])
-    @user.gravatar_url = uploaded_file['secure_url']
+    @user = User.new(full_name: user_params[:full_name], name: user_params[:name].downcase,
+                     email: user_params[:email], password: [:password])
+
+    unless user_params[:gravatar_url].nil?
+      uploaded_file = Cloudinary::Uploader.upload(user_params[:gravatar_url])
+      @user.gravatar_url = uploaded_file['secure_url']
+    end
 
     respond_to do |format|
       if @user.save
@@ -67,6 +64,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def user_params
+      params.require(:user).permit(:full_name, :name, :email, :password, :gravatar_url)
+    end
 
     def set_user
       @user = User.find(params[:id])

@@ -57,12 +57,31 @@
 }
 
 #error_explanation {
-  // max-width: 100%;
   width: 100%;
 }
 
 .field_with_errors {
   width: 100%;
+}
+
+.main-avatar-wrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.main-avatar-wrapper img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  float: left;
+  margin-right: 10px;
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
 }
 
 .avatar-wrapper {
@@ -87,8 +106,9 @@
   transform: translate(-50%,-50%);
   float: left;
   margin-right: 10px;
-  border-radius: 50%;
-  width: 80px;
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
 }
 
 #change-img-field {
@@ -104,6 +124,8 @@
   display: flex;
   width: 100%;
   align-items: stretch;
+  // max-width: 100%;
+  overflow: hidden;
 }
 
 #sidebar {

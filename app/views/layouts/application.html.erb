@@ -14,9 +14,16 @@
     <% end %>
     <div class="wrapper">
       <!-- Sidebar  -->
-      <nav id="sidebar">
+      <nav id="sidebar" class="active">
+
         <div class="sidebar-header">
-          <h3>Bootstrap Sidebar</h3>
+
+          <div class="main-avatar-wrapper">
+            <%= image_tag(user_image, alt: "default", class: "gravatar", id: "img-prev") %>
+          </div>
+
+          <h3 class="text-center"><%= current_user.full_name %></h3>
+          <h4 class="text-center">@<%= current_user.name %></h4>
         </div>
 
         <ul class="list-unstyled components">
