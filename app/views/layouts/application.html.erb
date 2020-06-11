@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>  </head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -39,16 +39,17 @@
       <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-              <i class="fa fa-bars"></i>
-            </button>
-            <h1 class="d-inline"><%= yield(:title) %></h1>
+            <div class="row">
+              <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fa fa-bars"></i>
+              </button>
+              <h1 class="d-inline"><%= yield(:title) %></h1>
+            </div>
           </div>
         </nav>
         <%= yield %>
       </div>
     </div>
-    <%= debug(params) if Rails.env.development? %>
     <script type="text/javascript">
       $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {

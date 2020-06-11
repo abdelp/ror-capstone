@@ -28,6 +28,16 @@
   background-color: var(--main);
 }
 
+.btn-main, .btn-main:visited {
+  color: #fff;
+  background-color: var(--main);
+}
+
+.btn-header {
+  position: absolute;
+  margin-top: 10px;
+}
+
 .page-title {
   color: white;
 }

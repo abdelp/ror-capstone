@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   def new
-    render layout: "logged_out"
+    render layout: 'logged_out'
   end
 
   def create
@@ -9,8 +9,8 @@ class UserSessionsController < ApplicationController
       log_in user
       redirect_back_or my_time_entries_path
     else
-      flash.now[:danger] = 'Invalid username'
-      render 'new'
+      flash[:danger] = 'Invalid username'
+      redirect_back(fallback_location: login_path)
     end
   end
 

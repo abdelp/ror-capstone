@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    session[:forwarding_url] = login_path
     @user = User.new
     render layout: "logged_out"
   end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { render :new, layout: 'layouts/logged_out' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
   end
 
   def my_time_entries
-    @my_time_entries = current_user.time_entries
+    @my_time_entries = current_user.time_entries.where("group_id IS NOT NULL")
   end
 
   private

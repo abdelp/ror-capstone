@@ -1,31 +1,23 @@
 class TimeEntriesController < ApplicationController
   before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
 
-  # GET /time_entries
-  # GET /time_entries.json
   def index
-    @time_entries = TimeEntry.all
+    @time_entries = TimeEntry.all.where("group_id IS NULL")
     @current_user = current_user
   end
 
-  # GET /time_entries/1
-  # GET /time_entries/1.json
   def show
   end
 
-  # GET /time_entries/new
   def new
-    @time_entry = TimeEntry.new
+    @time_entry = current_user.time_entries.build
   end
 
-  # GET /time_entries/1/edit
   def edit
   end
 
-  # POST /time_entries
-  # POST /time_entries.json
   def create
-    @time_entry = TimeEntry.new(time_entry_params)
+    @time_entry = current_user.time_entries.build(time_entry_params)
 
     respond_to do |format|
       if @time_entry.save
@@ -38,8 +30,6 @@ class TimeEntriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /time_entries/1
-  # PATCH/PUT /time_entries/1.json
   def update
     respond_to do |format|
       if @time_entry.update(time_entry_params)
@@ -52,8 +42,6 @@ class TimeEntriesController < ApplicationController
     end
   end
 
-  # DELETE /time_entries/1
-  # DELETE /time_entries/1.json
   def destroy
     @time_entry.destroy
     respond_to do |format|
@@ -63,13 +51,11 @@ class TimeEntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_time_entry
       @time_entry = TimeEntry.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def time_entry_params
-      params.require(:time_entry).permit(:author_id, :name, :amount, :group_id)
+      params.require(:time_entry).permit(:name, :start_time, :end_time, :group_id)
     end
 end

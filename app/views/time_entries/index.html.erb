@@ -1,4 +1,4 @@
-<% provide(:title, 'Time Entries') %>
+<% provide(:title, 'External Time Entries') %>
 <p id="notice"><%= notice %></p>
 
 <div>
@@ -8,10 +8,13 @@
 <table>
   <thead>
     <tr>
-      <th>Author</th>
       <th>Name</th>
+      <th>Created</th>
+      <th>Start time</th>
+      <th>End time</th>
       <th>Amount</th>
       <th>Group</th>
+      <th>Author</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,10 +22,13 @@
   <tbody>
     <% @time_entries.each do |time_entry| %>
       <tr>
-        <td><%= time_entry.author_id %></td>
         <td><%= time_entry.name %></td>
+        <td><%= time_ago_in_words(time_entry.created_at) %> ago</td>
+        <td><%= time_entry.start_time %></td>
+        <td><%= time_entry.end_time %></td>
         <td><%= time_entry.amount %></td>
-        <td><%= time_entry.group_id %></td>
+        <td><%= time_entry.group.name unless time_entry.group.nil? %></td>
+        <td><%= time_entry.author.name %></td>
         <td><%= link_to 'Show', time_entry %></td>
         <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
         <td><%= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Time Entry', new_time_entry_path %>
+<%= link_to 'Add new', new_time_entry_path %>

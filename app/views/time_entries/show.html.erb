@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @time_entry.author_id %>
+  <strong>Name:</strong>
+  <%= @time_entry.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @time_entry.name %>
+  <strong>Start time:</strong>
+  <%= @time_entry.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @time_entry.end_time %>
 </p>
 
 <p>
@@ -17,7 +22,12 @@
 
 <p>
   <strong>Group:</strong>
-  <%= @time_entry.group_id %>
+  <%= @time_entry.group.name unless @time_entry.group.nil?  %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @time_entry.author.name %>
 </p>
 
 <%= link_to 'Edit', edit_time_entry_path(@time_entry) %> |

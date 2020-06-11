@@ -1,22 +1,40 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: user, local: true, class: 'form') do |form| %>
+      <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+      <div class="form-group">
+        <div class="gravatar_edit">
+          <%= image_tag('default-profile.png', alt: "default", class: "gravatar") %>
+          <a href="https://gravatar.com/emails" target="_blank" rel="noopener">Upload picture</a>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Username' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.email_field :name, class: 'form-control', placeholder: 'Email' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.password_field :name, class: 'form-control', placeholder: 'Password' %>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit "Signup", class: "btn btn-primary"  %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

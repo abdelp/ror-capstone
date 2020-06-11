@@ -1,8 +1,5 @@
-<% provide(:title, "Log in") %>
-<div class="row bg-main">
-  <h1 class="text-center text-uppercase page-title">Login</h1>
-</div>
-<div class="row">
+<% provide(:title, "Login") %>
+<div class="row text-center">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with(url: login_path, scope: :session, local: true, class: 'form') do |f| %>
       <div class="form-group">
