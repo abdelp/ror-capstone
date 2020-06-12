@@ -1,27 +1,37 @@
-<%= form_with(model: group, local: true) do |form| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: group, local: true, class: 'form') do |form| %>
+      <% if group.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+          <ul>
+            <% group.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <ul>
-        <% group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <div class="gravatar_edit">
+          <div class="group-avatar-wrapper">
+            <%= image_tag('default.png', alt: "default", class: "gravatar", id: "group-img-prev") %>
+          </div>
+          <%= button_tag "Upload image", class: "btn btn-default", type: "button", id: "change-img-btn" %>
+          <%= form.file_field :icon, placeholder: 'Upload picture', id: "change-img-field", onchange: "changeImg(this);" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+      <div class="form-group">
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Signup", class: "btn btn-primary"  %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :icon %>
-    <%= form.text_field :icon %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

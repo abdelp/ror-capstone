@@ -1,27 +1,14 @@
 <% provide(:title, 'My Time Entries') %>
 <p id="notice"><%= notice %></p>
 
-  <div class="col-12">
-    Total amount: <%= @current_user.total_amount %>
-  </div>
+<div class="total-amount">
+  Total amount: <%= @current_user.total_amount %>
+</div>
 
+<div class="container-fluid">
+  <ul>
+    <%= render @my_time_entries %>
+  </ul>
+</div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Author</th>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Group</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= render @my_time_entries %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Time Entry', new_time_entry_path %>
+<%= link_to 'Add new', new_time_entry_path %>

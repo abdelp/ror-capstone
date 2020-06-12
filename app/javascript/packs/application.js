@@ -11,10 +11,13 @@ require("channels")
 require("jquery")
 import "bootstrap"
 
-
-$(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-    $('#sidebar').toggleClass('active');
+document.addEventListener("turbolinks:load", () => {
+  $(function() {
+    $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+    });
   });
 });
 

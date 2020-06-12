@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    session[:forwarding_url] = login_path
     @user = User.new
 
     render layout: "logged_out"

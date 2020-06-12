@@ -3,13 +3,19 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @x = 'groups'
+    render layout: "application"
+    @x = 'rendered'
   end
 
   def show
   end
 
   def new
+    @x = 'new'
+    # session[:forwarding_url] = groups_path
     @group = current_user.groups.build
+    render layout: "logged_out"
   end
 
   def edit

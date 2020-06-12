@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body>
     <% flash.each do |message_type, message| %>
@@ -26,8 +27,9 @@
           <h4 class="text-center">@<%= current_user.name %></h4>
         </div>
 
-        <ul class="list-unstyled components">
+        <ul class="list-unstyled components fa-ul">
           <li>
+            <span class="fa-li"><i class="far fa-clock"></i></span>
             <%= link_to 'All my transactions', my_time_entries_path, class: "dropdown-toggle" %>
           </li>
           <li>
@@ -58,9 +60,7 @@
             </a>
           </div>
         </nav>
-        <div class="container-fluid">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
     </div>  
   </body>
