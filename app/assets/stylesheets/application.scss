@@ -199,6 +199,8 @@ h1 {
 #sidebar li {
   display: flex;
   align-items: center;
+  font-size: 15px;
+  padding: 10px 0;
 }
 
 ul ul a {
@@ -224,9 +226,8 @@ ul.CTAs a {
   display: block;
 }
 
-#sidebar ul li a:hover {
-  color: #7386d5;
-  background: #fff;
+#sidebar ul li a:visited {
+  color: white;
 }
 
 #sidebar ul li.active > a,

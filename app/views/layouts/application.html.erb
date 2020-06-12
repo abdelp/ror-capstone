@@ -33,12 +33,17 @@
             <%= link_to 'All my transactions', my_time_entries_path, class: "dropdown-toggle" %>
           </li>
           <li>
+            <span class="fa-li"><i class="far fa-question-circle"></i></span>
             <%= link_to 'All my external transactions', time_entries_path, class: "dropdown-toggle" %>
           </li>
           <li>
+            <span class="fa-li"><i class="far fa-object-group"></i></span>
             <%= link_to 'All groups', groups_path, class: "dropdown-toggle" %>
           </li>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <li>
+            <span class="fa-li"><i class="fas fa-sign-out-alt"></i></span>
+            <%= link_to "Log out", logout_path, method: :delete %>
+          </li>
         </ul>
       </nav>
 
