@@ -19,6 +19,39 @@ document.addEventListener("turbolinks:load", () => {
       });
     });
   });
+
+  $(document).ready(function() {
+    $('#change-img-btn').on('click', function () {
+      $('#change-img-field').click();
+      return false;
+    });
+  });
+
+  window.changeImg = function changeImg(input) {
+    if (input.files && input.files[0]) {
+      let reader = new FileReader();
+  
+      reader.onload = function (e) {
+        $('#img-prev')
+          .attr('src', e.target.result);
+      };
+  
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  
+  window.changeGroupImg = function changeGroupImg(input) {
+    if (input.files && input.files[0]) {
+      let reader = new FileReader();
+  
+      reader.onload = function (e) {
+        $('#group-img-prev')
+          .attr('src', e.target.result);
+      };
+  
+      reader.readAsDataURL(input.files[0]);
+    }
+  }  
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
