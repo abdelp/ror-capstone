@@ -41,26 +41,25 @@
       </nav>
 
       <!-- Page Content  -->
+
       <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <div class="row">
-              <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fa fa-bars"></i>
-              </button>
-              <h1 class="d-inline"><%= yield(:title) %></h1>
-            </div>
+        <nav class="navb bg-main">
+          <div>
+            <a id="sidebarCollapse" class="btn text-white" type="button" id="menu-toggle">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+          <div>
+          <h1 class="text-center text-uppercase page-title"><%= yield(:title) %></h1>
+          </div>
+          <div>
+            <a id="sidebarCollapse" class="btn text-white" type="button" id="menu-toggle">
+              <i class="fas fa-search"></i>
+            </a>
           </div>
         </nav>
         <%= yield %>
       </div>
-    </div>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-          $('#sidebar').toggleClass('active');
-        });
-      });
-    </script>    
+    </div>  
   </body>
 </html>
