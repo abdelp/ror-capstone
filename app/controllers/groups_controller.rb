@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    render layout: 'logged_out'
   end
 
   def new
@@ -15,6 +16,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    render layout: 'logged_out'
   end
 
   def create

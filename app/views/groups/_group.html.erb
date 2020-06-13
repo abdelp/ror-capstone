@@ -4,10 +4,13 @@
   </div>
   <div class="details">
     <div>
-      <div><%= group.name %></div>
+      <div><strong><%= group.name.capitalize %></strong></div>
     </div>
-    <div> Created by:
-      <%= group.user.name %>
+    <div>
+      <div>Created: <%= group.created_at.strftime("%d %b %Y") %></div>
+      <div>By:
+        <%= group.user.name %>
+      </div>
     </div>
   </div>
 </li>

@@ -1,6 +1,6 @@
-<h1>Editing Group</h1>
+<% provide(:title, 'Edit Group') %>
+<% provide(:forwarding_url, groups_path) %>
 
 <%= render 'form', group: @group %>
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Show', @group %>

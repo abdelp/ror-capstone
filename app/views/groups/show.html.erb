@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Group') %>
+<% provide(:forwarding_url, groups_path) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<div class="show-container">
+  <div class="row">
+    <div class="col-12">
+      <strong>Name:</strong>
+      <%= @group.name %>
+    </div>
+  </div>
 
-<p>
-  <strong>Icon:</strong>
-  <%= @group.icon %>
-</p>
+  <div class="row">
+    <div class="col-12">
+      <strong>Icon:</strong>
+      <%= @group.icon %>
+    </div>
+  </div>
 
-<p>
-  <strong>Creator:</strong>
-  <%= @group.user.name %>
-</p>
+  <div class="row">
+    <div class="col-12">
+      <strong>Creator:</strong>
+      <%= @group.user.name %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="btn-container">
+  <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-green' %>
+</div>
+

@@ -24,8 +24,14 @@
   --main: #3778c2;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: white;
+}
+
+a:hover {
+  background-color: none;
+  text-decoration: none;
 }
 
 .bg-main {
@@ -48,12 +54,22 @@ a, a:visited {
   text-align: center;
   padding: 5px;
 
-  a {
+  a,
+  input {
     background-color: #5fb523;
     width: 100%;
     max-width: 100%;
     border-radius: 5px;
+    color: white;
   }
+}
+
+.show-container {
+  padding: 20px;
+  border: 1px solid gray;
+  background: white;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .text-white {
@@ -309,12 +325,10 @@ a[data-toggle="collapse"] {
 
 a.download {
   background: #fff;
-  color: #7386d5;
 }
 
 a.article,
 a.article:hover {
-  background: #6d7fcc !important;
   color: #fff !important;
 }
 
