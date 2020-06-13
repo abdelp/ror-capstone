@@ -5,10 +5,10 @@
   Total amount: <%= @current_user.total_amount %>
 </div>
 
-<div class="container-fluid">
-  <ul>
-    <%= render @my_time_entries %>
-  </ul>
-</div>
+<ul class="index-ul">
+  <%= render @my_time_entries %>
+</ul>
 
-<%= link_to 'Add new', new_time_entry_path %>
+<div class="btn-container">
+  <%= link_to 'Add new', new_time_entry_path, class: 'btn btn-green' %>
+</div>

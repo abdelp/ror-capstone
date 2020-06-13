@@ -1,0 +1,13 @@
+<li id="group-<%= group.id %>">
+  <div>
+    <%= image_tag group_img(group), alt: "group icon" %>
+  </div>
+  <div class="details">
+    <div>
+      <div><%= group.name %></div>
+    </div>
+    <div> Created by:
+      <%= group.user.name %>
+    </div>
+  </div>
+</li>

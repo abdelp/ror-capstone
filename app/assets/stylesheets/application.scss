@@ -24,7 +24,16 @@
   --main: #3778c2;
 }
 
+a, a:visited {
+  color: white;
+}
+
 .bg-main {
+  background-color: var(--main);
+}
+
+.btn:hover {
+  color: white;
   background-color: var(--main);
 }
 
@@ -32,6 +41,19 @@
 .btn-main:visited {
   color: #fff;
   background-color: var(--main);
+}
+
+.btn-container {
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+
+  a {
+    background-color: #5fb523;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+  }
 }
 
 .text-white {
@@ -142,6 +164,10 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 5px 0;
+
+  a:visited {
+    color: white;
+  }
 }
 
 .total-amount {
@@ -194,6 +220,39 @@ h1 {
 #sidebar ul p {
   color: #fff;
   padding: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.index-ul {
+  padding: 0;
+
+  li {
+    background-color: white;
+    margin: 5px 5px;
+    padding: 5px;
+    display: flex;
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      width: 100%;
+
+      div:first-child {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 #sidebar li {

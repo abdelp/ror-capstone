@@ -21,7 +21,7 @@
             <%= image_tag('default-profile.png', alt: "default", class: "gravatar", id: "img-prev") %>
           </div>
           <%= button_tag "Upload image", class: "btn btn-default", type: "button",id: "change-img-btn" %>
-          <%= form.file_field :gravatar_url, placeholder: 'Upload picture', id: "change-img-field", onchange: "changeGroupImg(this);" %>
+          <%= form.file_field :gravatar_url, placeholder: 'Upload picture', id: "change-img-field", onchange: "changeImg(this);" %>
         </div>
       </div>
 

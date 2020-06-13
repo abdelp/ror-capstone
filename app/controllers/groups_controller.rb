@@ -3,19 +3,15 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-    @x = 'groups'
-    render layout: "application"
-    @x = 'rendered'
+    render layout: 'application'
   end
 
   def show
   end
 
   def new
-    @x = 'new'
-    # session[:forwarding_url] = groups_path
     @group = current_user.groups.build
-    render layout: "logged_out"
+    render layout: 'logged_out'
   end
 
   def edit
@@ -23,6 +19,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.build(group_params)
+
+    unless group_params[:icon].nil?
+      uploaded_file = Cloudinary::Uploader.upload(group_params[:icon])
+      @group.icon = uploaded_file['secure_url']
+    end
 
     respond_to do |format|
       if @group.save
@@ -47,8 +48,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
     @group.destroy
     respond_to do |format|

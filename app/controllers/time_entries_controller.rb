@@ -4,6 +4,7 @@ class TimeEntriesController < ApplicationController
   def index
     @time_entries = TimeEntry.all.where("group_id IS NULL")
     @current_user = current_user
+    render layout: 'application'
   end
 
   def show
@@ -11,6 +12,7 @@ class TimeEntriesController < ApplicationController
 
   def new
     @time_entry = current_user.time_entries.build
+    render layout: 'logged_out'
   end
 
   def edit
@@ -56,6 +58,6 @@ class TimeEntriesController < ApplicationController
     end
 
     def time_entry_params
-      params.require(:time_entry).permit(:name, :start_time, :end_time, :group_id)
+      params.require(:time_entry).permit(:name, :start_time, :end_time, :amount, :group_id)
     end
 end
