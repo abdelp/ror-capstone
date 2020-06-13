@@ -1,14 +1,17 @@
 <li id="time-entry-<%= time_entry.id %>">
-  <div>
-    <%= image_tag group_img(time_entry.group), alt: "time entry group" %>
-  </div>
-  <div class="details">
+  <a>
     <div>
-      <div><%= time_entry.name %></div>
-      <div><%= formatted_duration(time_entry.amount) %></div>
+      <%= image_tag group_icon(time_entry.group), alt: "time entry group" %>
     </div>
-    <div>
-      <%= time_entry.created_at.strftime("%d %b %Y") %>
+    <div class="details">
+      <div>
+        <div><%= time_entry.name %></div>
+        <div><strong><%= formatted_duration(time_entry.amount) %></strong></div>
+      </div>
+      <div>
+        <p><%= time_entry.created_at.strftime("%d %b %Y") %></p>
+        <p>Author: <%= time_entry.author.full_name %></p>
+      </div>
     </div>
-  </div>
+  </a>
 </li>

@@ -10,9 +10,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body>
-    <%# <% flash.each do |message_type, message| %>
-      <%#<div class="alert alert-<%= message_type "><%= message </div>%>
-    <%#<% end %>
+
     <div class="wrapper">
       <!-- Sidebar  -->
       <nav id="sidebar" class="active">
@@ -65,6 +63,9 @@
             </a>
           </div>
         </nav>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
         <%= yield %>
       </div>
     </div>  

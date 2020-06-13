@@ -22,6 +22,7 @@
 
 :root {
   --main: #3778c2;
+  --light-gray: #F1F3F2;
 }
 
 a,
@@ -66,7 +67,7 @@ a:hover {
 
 .show-container {
   padding: 20px;
-  border: 1px solid gray;
+  border: 1px solid var(--light-gray);
   background: white;
   border-radius: 5px;
   margin: 5px;
@@ -243,13 +244,16 @@ li {
 }
 
 .index-ul {
-  padding: 0;
+  padding: 5px;
 
-  li {
+  li,
+  a {
     background-color: white;
-    margin: 5px 5px;
+    margin-bottom: 5px;
     padding: 5px;
     display: flex;
+    color: black;
+    width: 100%;
 
     .details {
       display: flex;
@@ -341,5 +345,5 @@ a.article:hover {
   min-width: 100%;
   min-height: 100vh;
   transition: all 0.3s;
-  background-color: #f1f3f2;
+  background-color: var(--light-gray);
 }

@@ -1,48 +1,9 @@
-<% provide(:title, 'External Time Entries') %>
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Time Entries') %>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12" style="background-color: red;">
-      <p>Total amount: <%= @current_user.total_amount %></p>
-    </div>
-  </div>
+<ul class="index-ul">
+  <%= render @time_entries %>
+</ul>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Created</th>
-        <th>Start time</th>
-        <th>End time</th>
-        <th>Amount</th>
-        <th>Group</th>
-        <th>Author</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @time_entries.each do |time_entry| %>
-        <tr>
-          <td><%= time_entry.name %></td>
-          <td><%= time_ago_in_words(time_entry.created_at) %> ago</td>
-          <td><%= time_entry.start_time %></td>
-          <td><%= time_entry.end_time %></td>
-          <td><%= time_entry.amount %></td>
-          <td><%= time_entry.group.name unless time_entry.group.nil? %></td>
-          <td><%= time_entry.author.name %></td>
-          <td><%= link_to 'Show', time_entry %></td>
-          <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
-          <td><%= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <div class="btn-container">
-    <%= link_to 'Add new', new_time_entry_path, class: 'btn btn-green' %>
-  </div>
+<div class="btn-container">
+  <%= link_to 'Add new', new_time_entry_path, class: 'btn btn-green' %>
 </div>

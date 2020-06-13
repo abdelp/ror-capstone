@@ -2,24 +2,23 @@
 <% provide(:forwarding_url, groups_path) %>
 
 <div class="show-container">
-  <div class="row">
-    <div class="col-12">
-      <strong>Name:</strong>
-      <%= @group.name %>
-    </div>
+  <div class="row text-center">
+    <%= image_tag group_icon(@group), alt: "group icon" %>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      <strong>Icon:</strong>
-      <%= @group.icon %>
+  <div class="details">
+    <div class="row">
+      <div class="col-12">
+        <strong>Name:</strong>
+        <%= @group.name %>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-12">
-      <strong>Creator:</strong>
-      <%= @group.user.name %>
+    <div class="row">
+      <div class="col-12">
+        <strong>Creator:</strong>
+        <%= @group.user.name %>
+      </div>
     </div>
   </div>
 </div>

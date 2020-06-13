@@ -1,22 +1,21 @@
 class TimeEntriesController < ApplicationController
-  before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_time_entry, only: %i[show edit update destroy]
+  before_action :set_time_entries, only: [:index]
+  before_action :set_group_options, only: %i[new edit]
 
   def index
-    @time_entries = TimeEntry.all.where("group_id IS NULL")
     @current_user = current_user
     render layout: 'application'
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @time_entry = current_user.time_entries.build
     render layout: 'logged_out'
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @time_entry = current_user.time_entries.build(time_entry_params)
@@ -53,11 +52,22 @@ class TimeEntriesController < ApplicationController
   end
 
   private
-    def set_time_entry
-      @time_entry = TimeEntry.find(params[:id])
-    end
 
-    def time_entry_params
-      params.require(:time_entry).permit(:name, :start_time, :end_time, :amount, :group_id)
-    end
+  def set_time_entry
+    @time_entry = TimeEntry.find(params[:id])
+  end
+
+  def time_entry_params
+    params.require(:time_entry).permit(:name, :start_time, :end_time, :amount, :group_id)
+  end
+
+  def set_time_entries
+    @time_entries = TimeEntry.all.where('group_id IS NULL')
+    @group = Group.find(params[:group_id]) unless params[:group_id].nil?
+    @time_entries = @group.time_entries unless @group.nil?
+  end
+
+  def set_group_options
+    @group_options = Group.all.map { |u| [u.name, u.id] }
+  end
 end

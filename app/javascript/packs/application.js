@@ -10,12 +10,52 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 import "bootstrap"
+import { start } from "@rails/activestorage"
 
 document.addEventListener("turbolinks:load", () => {
   $(function() {
     $(document).ready(function () {
       $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
+      });
+
+      $('#time_entry_start_time').on('change', function() {
+        const zeroPad = (num) => String(num).padStart(2, '0');
+        const startTime = new Date($('#time_entry_start_time').val().replace('T', ' '));
+        const endTime = new Date($('#time_entry_end_time').val().replace('T', ' '));
+
+        if((startTime instanceof Date && !isNaN(startTime)) && (
+          endTime instanceof Date && !isNaN(endTime))) {
+          let diffTime = Math.abs(endTime.getTime() - startTime.getTime()) / 1000;
+          let hours = Math.floor(diffTime / 3600);
+
+          diffTime %= 3600;
+          let minutes = Math.floor(diffTime / 60);
+          let seconds = diffTime % 60;
+          $('#time_entry_amount').val(`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(seconds)}`);
+        } else {
+          $('#time_entry_amount').val("00:00:00");
+        }
+      });
+
+      $('#time_entry_end_time').on('change', function() {
+        const zeroPad = (num) => String(num).padStart(2, '0');
+        const startTime = new Date($('#time_entry_start_time').val().replace('T', ' '));
+        const endTime = new Date($('#time_entry_end_time').val().replace('T', ' '));
+
+        if((startTime instanceof Date && !isNaN(startTime)) && (
+          endTime instanceof Date && !isNaN(endTime))) {
+
+          let diffTime = Math.abs(endTime.getTime() - startTime.getTime()) / 1000;
+          let hours = Math.floor(diffTime / 3600);
+
+          diffTime %= 3600;
+          let minutes = Math.floor(diffTime / 60);
+          let seconds = diffTime % 60;
+          $('#time_entry_amount').val(`${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(seconds)}`);
+        } else {
+          $('#time_entry_amount').val("00:00:00");
+        }
       });
     });
   });

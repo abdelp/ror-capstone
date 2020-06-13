@@ -1,22 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :logged_in_user, only: %i[index edit update destroy
+                                          following followers]
   def index
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
 
-    render layout: "logged_out"
+    render layout: 'logged_out'
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.new(full_name: user_params[:full_name], name: user_params[:name].downcase,
@@ -59,16 +57,16 @@ class UsersController < ApplicationController
   end
 
   def my_time_entries
-    @my_time_entries = current_user.time_entries.where("group_id IS NOT NULL")
+    @time_entries = current_user.time_entries
   end
 
   private
 
-    def user_params
-      params.require(:user).permit(:full_name, :name, :email, :password, :gravatar_url)
-    end
+  def user_params
+    params.require(:user).permit(:full_name, :name, :email, :password, :gravatar_url)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

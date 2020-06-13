@@ -1,42 +1,44 @@
-<%= form_with(model: time_entry, local: true) do |form| %>
-  <% if time_entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(time_entry.errors.count, "error") %> prohibited this time_entry from being saved:</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: time_entry, local: true, class: 'form') do |form| %>
+      <% if time_entry.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(time_entry.errors.count, "error") %> prohibited this time_entry from being saved:</h2>
+          <ul>
+            <% time_entry.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <ul>
-        <% time_entry.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= form.label :name, 'Description' %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="form-group">
+        <%= form.label :start_time %>
+        <%= form.datetime_field :start_time, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_field :start_time %>
-  </div>
+      <div class="form-group">
+        <%= form.label :end_time %>
+        <%= form.datetime_field :end_time, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.datetime_field :end_time %>
-  </div>
+      <div class="form-group">
+        <%= form.label :amount %>
+        <%= form.text_field :amount, class: 'form-control', value: '00:00:00', disabled: true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
+      <div class="form-group">
+        <%= form.label :group_id %>
+        <%= form.select(:group_id, @group_options, {}, class: 'form-control') %>
+      </div>
 
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.text_field :group_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="btn-container">
+        <%= form.submit "Create", class: "btn btn-green"  %>
+      </div>
+    <% end %>
+</div>

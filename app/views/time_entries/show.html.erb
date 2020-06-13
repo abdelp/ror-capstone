@@ -1,34 +1,42 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Time Entry') %>
+<% provide(:forwarding_url, time_entries_path) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @time_entry.name %>
-</p>
+<div class="show-container">
+  <div class="details">
+    <div class="row">
+      <strong>Description:</strong>
+      <%= @time_entry.name %>
+    </div>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @time_entry.start_time %>
-</p>
+    <div class="row">
+      <strong>Start time:</strong>
+      <%= format_datetime(@time_entry.start_time) %>
+    </div>
 
-<p>
-  <strong>End time:</strong>
-  <%= @time_entry.end_time %>
-</p>
+    <div class="row">
+      <strong>End time:</strong>
+      <%= format_datetime(@time_entry.end_time) %>
+    </div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @time_entry.amount %>
-</p>
+    <div class="row">
+      <strong>Total time:</strong>
+      <%= formatted_duration(@time_entry.amount) %>
+    </div>
 
-<p>
-  <strong>Group:</strong>
-  <%= @time_entry.group.name unless @time_entry.group.nil?  %>
-</p>
+    <div class="row">
+      <strong>Group:</strong>
+      <%= @time_entry.group.name unless @time_entry.group.nil?  %>
+    </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @time_entry.author.name %>
-</p>
+    <div class="row">
+      <strong>Author:</strong>
+      <%= @time_entry.author.name %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_time_entry_path(@time_entry) %> |
+<div class="btn-container">
+  <%= link_to 'Edit', edit_time_entry_path(@time_entry), class: 'btn btn-green' %>
+</div>
+
 <%= link_to 'Back', time_entries_path %>

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_194230) do
   create_table "time_entries", force: :cascade do |t|
     t.bigint "author_id"
     t.string "name"
-    t.integer "amount"
+    t.interval "amount"
     t.bigint "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

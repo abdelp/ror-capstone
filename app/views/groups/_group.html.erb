@@ -1,16 +1,18 @@
 <li id="group-<%= group.id %>">
-  <div>
-    <%= image_tag group_img(group), alt: "group icon" %>
-  </div>
-  <div class="details">
+  <a href="<%= group_time_entries_path(group) %>">
     <div>
-      <div><strong><%= group.name.capitalize %></strong></div>
+      <%= image_tag group_icon(group), alt: "group icon" %>
     </div>
-    <div>
-      <div>Created: <%= group.created_at.strftime("%d %b %Y") %></div>
-      <div>By:
-        <%= group.user.name %>
+    <div class="details">
+      <div>
+        <div><strong><%= group.name.capitalize %></strong></div>
+      </div>
+      <div>
+        <div>Created: <%= group.created_at.strftime("%d %b %Y") %></div>
+        <div>By:
+          <%= group.user.name %>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </li>

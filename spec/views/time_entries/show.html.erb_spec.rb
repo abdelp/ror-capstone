@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "time_entries/show", type: :view do
+RSpec.describe 'time_entries/show', type: :view do
   before(:each) do
     @time_entry = assign(:time_entry, TimeEntry.create!(
-      author_id: "",
-      name: "Name",
-      amount: 2,
-      group: nil
-    ))
+                                        author_id: '',
+                                        name: 'Name',
+                                        amount: 2,
+                                        group: nil
+                                      ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(//)
     expect(rendered).to match(/Name/)
