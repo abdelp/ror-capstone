@@ -15,14 +15,16 @@ class TimeEntriesController < ApplicationController
     render layout: 'logged_out'
   end
 
-  def edit; end
+  def edit
+    render layout: 'logged_out'
+  end
 
   def create
     @time_entry = current_user.time_entries.build(time_entry_params)
 
     respond_to do |format|
       if @time_entry.save
-        format.html { redirect_to @time_entry, notice: 'Time entry was successfully created.' }
+        format.html { redirect_to @time_entry, flash: { success: 'Time entry was successfully created.' } }
         format.json { render :show, status: :created, location: @time_entry }
       else
         format.html { render :new }
@@ -34,7 +36,7 @@ class TimeEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @time_entry.update(time_entry_params)
-        format.html { redirect_to @time_entry, notice: 'Time entry was successfully updated.' }
+        format.html { redirect_to @time_entry, flash: { success: 'Time entry was successfully updated.' } }
         format.json { render :show, status: :ok, location: @time_entry }
       else
         format.html { render :edit }
@@ -46,7 +48,7 @@ class TimeEntriesController < ApplicationController
   def destroy
     @time_entry.destroy
     respond_to do |format|
-      format.html { redirect_to time_entries_url, notice: 'Time entry was successfully destroyed.' }
+      format.html { redirect_to time_entries_url, flash: { success: 'Time entry was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end

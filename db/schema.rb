@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_151117) do
     t.string "gravatar_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "total_amount", default: 0
+    t.interval "total_amount", default: "00:00:00"
     t.string "full_name", null: false
     t.string "email", null: false
     t.string "password", null: false

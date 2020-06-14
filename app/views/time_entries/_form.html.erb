@@ -34,7 +34,7 @@
 
       <div class="form-group">
         <%= form.label :group_id %>
-        <%= form.select(:group_id, @group_options, {}, class: 'form-control') %>
+        <%= form.select(:group_id, @group_options, {include_blank: true}, class: 'form-control') %>
       </div>
 
       <div class="btn-container">
