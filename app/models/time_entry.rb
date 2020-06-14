@@ -10,8 +10,8 @@ class TimeEntry < ApplicationRecord
   private
 
   def no_overlaping
-    unless start_time.nil? || end_time.nil?
-      errors.add(:end_time, "end_time can't be equal or less than start_time") unless start_time < end_time
-    end
+    return unless !start_time.nil? && end_time.nil? && start_time < end_time
+
+    errors.add(:end_time, "end_time can't be equal or less than start_time")
   end
 end
