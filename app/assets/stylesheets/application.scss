@@ -30,9 +30,14 @@ a:visited {
   color: white;
 }
 
-a:hover {
-  background-color: none;
+a:hover,
+a:active {
+  background-color: initial;
   text-decoration: none;
+}
+
+#signup-btn {
+  color: var(--main);
 }
 
 .bg-main {

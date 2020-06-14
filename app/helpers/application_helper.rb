@@ -12,8 +12,4 @@ module ApplicationHelper
   def format_datetime(datetime)
     datetime.strftime('%d %b %Y - %H:%M:%S')
   end
-
-  def formatted_duration(total_seconds)
-    Time.at(total_seconds).utc.strftime('%H:%M:%S')
-  end
 end

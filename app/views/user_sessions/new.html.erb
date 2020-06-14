@@ -5,10 +5,9 @@
       <div class="form-group">
         <%= f.text_field :name, class: 'form-control', placeholder: 'Username' %>
       </div>
-
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>New user? <%= link_to "Sign up now!", signup_path, id: "signup-btn" %></p>
   </div>
 </div>
