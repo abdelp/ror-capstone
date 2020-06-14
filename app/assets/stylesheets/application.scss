@@ -22,10 +22,19 @@
 
 :root {
   --main: #3778c2;
-  --light-gray: #F1F3F2;
+  --light-gray: #f1f3f2;
 }
 
-a,
+a {
+  color: white;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
 a:visited {
   color: white;
 }
@@ -76,6 +85,15 @@ a:active {
   background: white;
   border-radius: 5px;
   margin: 5px;
+}
+
+.group-avatar-wrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  margin-right: 5px;
 }
 
 .show-container .group-avatar-wrapper {
@@ -141,15 +159,6 @@ h1 {
   margin-right: 5px;
 }
 
-.group-avatar-wrapper {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 5px;
-  position: relative;
-  margin-right: 5px;
-}
-
 .gravatar_edit {
   margin-top: 15px;
   display: flex;
@@ -183,6 +192,50 @@ h1 {
 #change-img-field {
   visibility: hidden;
   display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.index-ul {
+  padding: 5px;
+
+  li,
+  a {
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    color: black;
+    width: 100%;
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      width: 100%;
+
+      div:first-child {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .navb {
@@ -248,42 +301,6 @@ h1 {
   padding: 10px;
 }
 
-li {
-  list-style-type: none;
-}
-
-.index-ul {
-  padding: 5px;
-
-  li,
-  a {
-    background-color: white;
-    margin-bottom: 5px;
-    padding: 5px;
-    display: flex;
-    color: black;
-    width: 100%;
-
-    .details {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      padding: 10px;
-      width: 100%;
-
-      div:first-child {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  img {
-    height: 100px;
-    width: 100px;
-  }
-}
-
 #sidebar li {
   display: flex;
   align-items: center;
@@ -291,22 +308,8 @@ li {
   padding: 10px 0;
 }
 
-ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #6d7fcc;
-}
-
 ul.CTAs {
   padding: 20px;
-}
-
-ul.CTAs a {
-  text-align: center;
-  font-size: 0.9em !important;
-  display: block;
-  border-radius: 5px;
-  margin-bottom: 5px;
 }
 
 #sidebar ul li a {
