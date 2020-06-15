@@ -1,7 +1,7 @@
 <% provide(:title, "Login") %>
 <div class="row text-center">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(url: login_path, scope: :session, local: true, class: 'form') do |f| %>
+    <%= form_with(url: login_path, scope: :session, local: true, id: 'login_form', class: 'form') do |f| %>
       <div class="form-group">
         <%= f.text_field :name, class: 'form-control', placeholder: 'Username' %>
       </div>

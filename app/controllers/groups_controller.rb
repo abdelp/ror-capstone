@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
-  layout 'logged_out', :only => [ :show, :new, :edit ]
+  layout 'logged_out', only: %i[show new edit]
 
   def index
     @groups = Group.all

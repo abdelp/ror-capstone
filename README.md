@@ -1,26 +1,65 @@
-# README
+# Activities Tracker (ClockRoR)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This project consists in an app that tracks your activities. Each activity is specified with a starting and ending datetime, also can be included in groups.
 
-Things you may want to cover:
+![screenshot](./app_screenshot.png)
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby
+- Ruby on Rails
+- Javascript
+- Bootstrap
 
-* Configuration
+## Live Demo
 
-* Database creation
+[Live Demo Link](https://whispering-retreat-92662.herokuapp.com)
 
-* Database initialization
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+To get a local copy up and running follow these simple example steps.
 
-* Deployment instructions
+### Prerequisites
 
-* ...
+### Setup
 
-https://stackoverflow.com/questions/2310197/how-to-convert-270921sec-into-days-hours-minutes-sec-ruby
+### Install
+
+### Usage
+
+### Run tests
+
+you need to put an image "profile.png" in your /tmp folder
+
+### Deployment
+
+
+
+## Authors
+
+👤 **Abdel Perez**
+
+- Github: [@abdelp](https://github.com/abdelp)
+- Twitter: [@AbdelPerez11](https://twitter.com/AbdelPerez11)
+- Linkedin: [linkedin](https://www.linkedin.com/in/abdel-perez)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.

@@ -35,11 +35,11 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
   gem 'factory_bot_rails', '~> 5.2'
   gem 'faker', '~> 2.12'
+  gem 'rack_session_access', '~> 0.2.0'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'rubocop', '~>0.8'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
   gem 'shoulda-matchers', '~> 4.3'
-  gem 'rack_session_access', '~> 0.2.0'
 end
 
 group :development do
