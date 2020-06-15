@@ -27,6 +27,7 @@ class TimeEntriesController < ApplicationController
         format.html { redirect_to @time_entry, flash: { success: 'Time entry was successfully created.' } }
         format.json { render :show, status: :created, location: @time_entry }
       else
+        @group_options = Group.all.map { |u| [u.name, u.id] }
         format.html { render :new }
         format.json { render json: @time_entry.errors, status: :unprocessable_entity }
       end
