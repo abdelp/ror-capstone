@@ -17,16 +17,18 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       end
 
       click_button 'Signup'
+      sleep(2)
       expect(page.get_rack_session_key('user_id')).to eq(1)
     end
 
-    it 'login a user' do
+    it 'user can login with just username' do
       visit login_path
       within('#login_form') do
         fill_in 'Username', with: user_login.name
       end
 
       click_button 'Log in'
+      sleep(2)
       expect(page.get_rack_session_key('user_id')).to eq(2)
     end
 
@@ -36,6 +38,7 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
 
       find('#sidebarCollapse').click
       click_on 'Log out'
+      sleep(2)
       expect { page.get_rack_session_key('user_id') }.to raise_error(KeyError)
     end
   end

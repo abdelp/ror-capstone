@@ -25,6 +25,11 @@
   --main-title: linear-gradient(360deg, rgba(39, 83, 133, 1) 26%, rgba(55, 120, 194, 1) 88%);
   --main-gradient: linear-gradient(30deg, rgba(55, 120, 194, 1) 24%, rgba(22, 27, 62, 1) 93%);
   --light-gray: #f1f3f2;
+  --bold-gray: #434b54;
+}
+
+.text-bold-gray {
+  color: var(--bold-gray);
 }
 
 a {
@@ -200,6 +205,17 @@ li {
   list-style-type: none;
 }
 
+.total-amount {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  div:nth-child(2) {
+    font-weight: bold;
+  }
+}
+
 .index-ul {
   padding: 5px;
 
@@ -249,11 +265,6 @@ ul.CTAs a {
   a:visited {
     color: white;
   }
-}
-
-.total-amount {
-  padding: 10px 0 15px 15px;
-  background-color: white;
 }
 
 #notice {
