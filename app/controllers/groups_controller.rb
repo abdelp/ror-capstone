@@ -1,23 +1,19 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
+  layout 'logged_out', :only => [ :show, :new, :edit ]
 
   def index
     @groups = Group.all
     render layout: 'application'
   end
 
-  def show
-    render layout: 'logged_out'
-  end
+  def show; end
 
   def new
     @group = current_user.groups.build
-    render layout: 'logged_out'
   end
 
-  def edit
-    render layout: 'logged_out'
-  end
+  def edit; end
 
   def create
     @group = current_user.groups.build(group_params)
@@ -60,12 +56,10 @@ class GroupsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_group
     @group = Group.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def group_params
     params.require(:group).permit(:name, :icon)
   end
