@@ -29,5 +29,14 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       click_button 'Log in'
       expect(page.get_rack_session_key('user_id')).to eq(2)
     end
+
+    it 'logout user' do
+      page.set_rack_session(user_id: user_login.id)
+      visit root_path
+
+      find('#sidebarCollapse').click
+      click_on 'Log out'
+      expect { page.get_rack_session_key('user_id') }.to raise_error(KeyError)
+    end
   end
 end
