@@ -1,6 +1,6 @@
 # Activities Tracker (ClockRoR)
 
-> This project consists of an app that tracks your activities. Each activity is specified with a starting and ending DateTime, they also can be included in groups.
+> This project consists of an app that tracks your activities. Each activity is specified with a starting and ending DateTime, they also can be included in groups. All of the requirements are listed [here](https://www.notion.so/Group-our-transactions-ccea2b6642664540a70de9f30bdff4ce)
 
 ## Built With
 
