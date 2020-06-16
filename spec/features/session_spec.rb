@@ -9,7 +9,7 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       visit signup_path
 
       within('#new_user') do
-        attach_file('change-img-field', '/tmp/profile.jpeg', make_visible: true)
+        attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
         fill_in 'Full name', with: user[:full_name]
         fill_in 'Username', with: user[:name]
         fill_in 'Email', with: user[:email]

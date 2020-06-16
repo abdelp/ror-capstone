@@ -10,7 +10,7 @@ RSpec.describe Group, driver: :selenium_chrome, js: true do
   describe 'the group management process' do
     it 'creates a group' do
       visit new_group_path
-      attach_file('change-img-field', '/tmp/profile.jpeg', make_visible: true)
+      attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
 
       fill_in 'Name', with: group[:name]
 

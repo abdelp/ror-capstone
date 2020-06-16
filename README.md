@@ -1,15 +1,17 @@
 # Activities Tracker (ClockRoR)
 
-> This project consists in an app that tracks your activities. Each activity is specified with a starting and ending datetime, also can be included in groups.
+> This project consists in an app that tracks your activities. Each activity is specified with a starting and ending datetime, they also can be included in groups.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app/assets/images/app_screenshot.png)
 
 ## Built With
 
-- Ruby
-- Ruby on Rails
+- Ruby >= 2.6.5
+- Rails >= 6.0.3
+- Postgres >= 9.5
+- Bootstrap >= 3
 - Javascript
-- Bootstrap
+
 
 ## Live Demo
 
@@ -20,21 +22,65 @@
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 ### Setup
+
+Clone or download the repo:
+
+```
+$ git clone git@github.com:abdelp/ror-capstone.git
+```
 
 ### Install
 
+```
+$ cd ror-capstone
+$ bundle
+$ rails db:create
+$ rails db:migrate
+```
+
 ### Usage
+
+Inside the root folder run:
+
+```
+rails s
+```
+
+#### Login
+
+![login](./app/assets/images/login.png)
+
+#### Register
+
+![register](./app/assets/images/register.png)
+
+#### Profile
+
+![profile](./app/assets/images/profile.png)
+
+#### Time entries
+
+![time_entries](./app/assets/images/time_entries.png)
 
 ### Run tests
 
-you need to put an image "profile.png" in your /tmp folder
+1. To run the tests where an image upload it's available you need to put an image "profile.png" in your /tmp folder.
+2. The tests with selenium requires the previous installation of [chromium chrome driver](https://chromedriver.chromium.org/downloads) compatible with the chrome browser to use.
+3. Run the tests with:
+
+```
+rspec
+```
 
 ### Deployment
 
+To deploy on Heroku
 
+```
+$ heroku create
+$ git push heroku master
+```
 
 ## Authors
 
