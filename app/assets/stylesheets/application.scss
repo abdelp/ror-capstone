@@ -26,6 +26,7 @@
   --main-gradient: linear-gradient(30deg, rgba(55, 120, 194, 1) 24%, rgba(22, 27, 62, 1) 93%);
   --light-gray: #f1f3f2;
   --bold-gray: #434b54;
+  --second: #5fb523;
 }
 
 .text-bold-gray {
@@ -60,6 +61,18 @@ a:active {
   background: var(--main-title);
 }
 
+.bg-second {
+  background-color: var(--second);
+}
+
+.bg-light-gray {
+  background: var(--light-gray);
+}
+
+.bg-white {
+  background-color: white;
+}
+
 .btn:hover {
   color: white;
   background-color: var(--main);
@@ -69,6 +82,13 @@ a:active {
 .btn-main:visited {
   color: #fff;
   background-color: var(--main);
+}
+
+.btn-second {
+  color: #fff;
+  background-color: var(--second);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
 }
 
 .btn-container {

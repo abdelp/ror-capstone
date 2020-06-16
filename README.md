@@ -12,15 +12,14 @@
 - Bootstrap >= 3
 - Javascript
 
-
 ## Live Demo
 
 [Live Demo Link](https://whispering-retreat-92662.herokuapp.com)
 
 
-## Getting Started
+## Prerequisites
 
-To get a local copy up and running follow these simple example steps.
+
 
 ### Setup
 
@@ -47,13 +46,20 @@ Inside the root folder run:
 rails s
 ```
 
-#### Login
-
-![login](./app/assets/images/login.png)
-
 #### Register
 
 ![register](./app/assets/images/register.png)
+
+To register a new user you:
+
+1. Can optionally select an image as avatar of the user.
+2. Need to input the full name of your user.
+3. Need to select a username, the username cannot be already taken by another user.
+4. 
+
+#### Login
+
+![login](./app/assets/images/login.png)
 
 #### Profile
 
@@ -75,11 +81,14 @@ rspec
 
 ### Deployment
 
-To deploy on Heroku
+To deploy on Heroku:
+
+1. You need to register an account [signup](https://www.heroku.com)
 
 ```
 $ heroku create
 $ git push heroku master
+$ heroku run rails db:migrate
 ```
 
 ## Authors
