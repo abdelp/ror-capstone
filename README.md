@@ -121,7 +121,7 @@ $ heroku run rails db:migrate
 
 - Github: [@abdelp](https://github.com/abdelp)
 - Twitter: [@AbdelPerez11](https://twitter.com/AbdelPerez11)
-- Linkedin: [linkedin](https://www.linkedin.com/in/abdel-perez)
+- Linkedin: [abdel-perez](https://www.linkedin.com/in/abdel-perez)
 
 ## 🤝 Contributing
 
