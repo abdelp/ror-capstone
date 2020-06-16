@@ -16,7 +16,6 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -26,11 +25,16 @@
   --main-gradient: linear-gradient(30deg, rgba(55, 120, 194, 1) 24%, rgba(22, 27, 62, 1) 93%);
   --light-gray: #f1f3f2;
   --bold-gray: #434b54;
+  --middle-gray: #7f8790;
   --second: #5fb523;
 }
 
 .text-bold-gray {
   color: var(--bold-gray);
+}
+
+.text-middle-gray {
+  color: var(--middle-gray);
 }
 
 a {
@@ -40,7 +44,6 @@ a {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
 }
 
 a:visited {
@@ -133,6 +136,7 @@ a:active {
 
 .page-title {
   color: white;
+  font-family: 'Nunito Sans';
 }
 
 .form {
@@ -255,9 +259,17 @@ li {
       padding: 10px;
       width: 100%;
 
-      div:first-child {
+      & > div:first-child {
         display: flex;
         justify-content: space-between;
+        font-family: 'Nunito Sans';
+        font-weight: 700;
+      }
+
+      & > div:nth-child(2) {
+        font-family: 'Nunito Sans';
+        font-weight: 100;
+        color: var(--middle-gray);
       }
     }
   }
