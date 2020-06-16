@@ -10,6 +10,10 @@
 - Bootstrap >= 3
 - Javascript
 
+## Video Presentation
+
+[Video link](https://www.loom.com/share/c424ab91c6b84620bb1ce8eeda928bd8)
+
 ## Live Demo
 
 [Live Demo Link](https://whispering-retreat-92662.herokuapp.com)
