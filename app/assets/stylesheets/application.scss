@@ -136,7 +136,7 @@ a:active {
 
 .page-title {
   color: white;
-  font-family: 'Nunito Sans';
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .form {
@@ -262,12 +262,12 @@ li {
       & > div:first-child {
         display: flex;
         justify-content: space-between;
-        font-family: 'Nunito Sans';
+        font-family: 'Nunito Sans', sans-serif;
         font-weight: 700;
       }
 
       & > div:nth-child(2) {
-        font-family: 'Nunito Sans';
+        font-family: 'Nunito Sans', sans-serif;
         font-weight: 100;
         color: var(--middle-gray);
       }
