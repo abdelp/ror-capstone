@@ -10,6 +10,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
 
+  private
+
   def downcase_attributes
     self.email = email.downcase
     self.name = name.downcase
