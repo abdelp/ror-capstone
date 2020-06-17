@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def my_time_entries
-    @time_entries = current_user.time_entries
+    @time_entries = current_user.time_entries.includes(:group)
   end
 
   private

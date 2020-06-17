@@ -2,22 +2,19 @@ class TimeEntriesController < ApplicationController
   before_action :set_time_entry, only: %i[show edit update destroy]
   before_action :set_time_entries, only: [:index]
   before_action :set_group_options, only: %i[new edit]
+  layout 'logged_out', only: %i[new edit]
 
   def index
     @current_user = current_user
-    render layout: 'application'
   end
 
   def show; end
 
   def new
     @time_entry = current_user.time_entries.build
-    render layout: 'logged_out'
   end
 
-  def edit
-    render layout: 'logged_out'
-  end
+  def edit; end
 
   def create
     @time_entry = current_user.time_entries.build(time_entry_params)
@@ -65,7 +62,7 @@ class TimeEntriesController < ApplicationController
   end
 
   def set_time_entries
-    @time_entries = TimeEntry.all.where('group_id IS NULL')
+    @time_entries = TimeEntry.all.where('group_id IS NULL').includes(:group, :author)
     @group = Group.find(params[:group_id]) unless params[:group_id].nil?
     @time_entries = @group.time_entries unless @group.nil?
   end
