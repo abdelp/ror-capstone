@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.new(full_name: user_params[:full_name], name: user_params[:name].downcase,
+    @user = User.new(full_name: user_params[:full_name], name: user_params[:name],
                      email: user_params[:email], password: [:password])
 
     unless user_params[:gravatar_url].nil?
