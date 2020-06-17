@@ -19,7 +19,7 @@ RSpec.describe TimeEntry, driver: :selenium_chrome, js: true do
       select 'mystring', from: 'time_entry_group_id'
 
       click_on 'Create'
-      sleep(3) 
+      sleep(3)
       expect(page).to have_content 'Time entry was successfully created.'
     end
 
@@ -30,7 +30,7 @@ RSpec.describe TimeEntry, driver: :selenium_chrome, js: true do
       fill_in 'End time', with: time_entry[:end_time]
 
       click_on 'Create'
-      sleep(3) 
+      sleep(3)
       expect(page).to have_content "Name can't be blank"
     end
 
@@ -41,7 +41,7 @@ RSpec.describe TimeEntry, driver: :selenium_chrome, js: true do
       fill_in 'End time', with: time_entry[:end_time]
 
       click_on 'Create'
-      sleep(3) 
+      sleep(3)
       expect(page).to have_content "Start time can't be blank"
     end
 
@@ -52,7 +52,7 @@ RSpec.describe TimeEntry, driver: :selenium_chrome, js: true do
       fill_in 'Start time', with: time_entry[:start_time]
 
       click_on 'Create'
-      sleep(3) 
+      sleep(3)
       expect(page).to have_content "End time can't be blank"
     end
 
