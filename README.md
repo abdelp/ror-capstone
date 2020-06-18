@@ -65,7 +65,7 @@ To register a new user you:
 
 ![login](./app/assets/images/login.png)
 
-To login is only required to specify the username.
+To login, it is only required to specify the username.
 
 #### Profile
 
