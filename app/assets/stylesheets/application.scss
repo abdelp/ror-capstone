@@ -1,0 +1,407 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+:root {
+  --main: #3778c2;
+  --main-title: linear-gradient(360deg, rgba(39, 83, 133, 1) 26%, rgba(55, 120, 194, 1) 88%);
+  --main-gradient: linear-gradient(30deg, rgba(55, 120, 194, 1) 24%, rgba(22, 27, 62, 1) 93%);
+  --light-gray: #f1f3f2;
+  --bold-gray: #434b54;
+  --middle-gray: #7f8790;
+  --second: #5fb523;
+}
+
+.text-bold-gray {
+  color: var(--bold-gray);
+}
+
+.text-middle-gray {
+  color: var(--middle-gray);
+}
+
+a {
+  color: white;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover,
+a:active {
+  background-color: initial;
+  text-decoration: none;
+}
+
+#signup-btn {
+  color: var(--main);
+}
+
+.bg-main {
+  background: var(--main-title);
+}
+
+.bg-second {
+  background-color: var(--second);
+}
+
+.bg-light-gray {
+  background: var(--light-gray);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.btn:hover {
+  color: white;
+  background-color: var(--main);
+}
+
+.btn-main,
+.btn-main:visited {
+  color: #fff;
+  background-color: var(--main);
+}
+
+.btn-second {
+  color: #fff;
+  background-color: var(--second);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+}
+
+.btn-container {
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+
+  a,
+  input {
+    background-color: #5fb523;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    color: white;
+  }
+}
+
+.show-container {
+  padding: 20px;
+  border: 1px solid var(--light-gray);
+  background: white;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.group-avatar-wrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  margin-right: 5px;
+}
+
+.show-container .group-avatar-wrapper {
+  margin: 0 auto;
+}
+
+.text-white {
+  color: white;
+}
+
+.page-title {
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.form {
+  padding-top: 5px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+.alert {
+  margin: 5px 0 5px 0;
+}
+
+#error_explanation {
+  width: 100%;
+}
+
+.field_with_errors {
+  width: 100%;
+}
+
+.main-avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.main-avatar-wrapper img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  float: left;
+  margin-right: 10px;
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
+
+.avatar-wrapper {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 5px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-wrapper img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  float: left;
+  margin-right: 10px;
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+}
+
+.group-avatar-wrapper img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  float: left;
+  margin-right: 10px;
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+}
+
+#change-img-field {
+  visibility: hidden;
+  display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.total-amount {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  div:nth-child(2) {
+    font-weight: bold;
+  }
+}
+
+.index-ul {
+  padding: 5px;
+
+  li,
+  a {
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    color: black;
+    width: 100%;
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 10px;
+      width: 100%;
+
+      & > div:first-child {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 700;
+      }
+
+      & > div:nth-child(2) {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 100;
+        color: var(--middle-gray);
+      }
+    }
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.navb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+
+  a:visited {
+    color: white;
+  }
+}
+
+#notice {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: var(--main-gradient);
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+.sidebar-header {
+  h3 {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar li {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-right: 10px;
+}
+
+ul.CTAs {
+  padding: 20px;
+}
+
+#sidebar ul li a {
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:visited {
+  color: white;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+a.download {
+  background: #fff;
+}
+
+a.article,
+a.article:hover {
+  color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+  transition: all 0.3s;
+  background-color: var(--light-gray);
+}

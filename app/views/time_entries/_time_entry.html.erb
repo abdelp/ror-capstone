@@ -1,0 +1,17 @@
+<li id="time-entry-<%= time_entry.id %>">
+  <a>
+    <div>
+      <%= image_tag group_icon(time_entry.group), alt: "time entry group" %>
+    </div>
+    <div class="details">
+      <div>
+        <div class="text-bold-gray"><%= time_entry.name %></div>
+        <div><strong><%= time_entry.amount %></strong></div>
+      </div>
+      <div>
+        <p class="text-middle-gray"><%= time_entry.created_at.strftime("%d %b %Y") %></p>
+        <p class="text-middle-gray">Author: <%= time_entry.author.full_name %></p>
+      </div>
+    </div>
+  </a>
+</li>

@@ -1,0 +1,13 @@
+<% provide(:title, 'My Time Entries') %>
+
+<div class="total-amount">
+  <div>Total amount:</div><div><%= @current_user.total_amount %></div>
+</div>
+
+<ul class="index-ul">
+  <%= render @time_entries %>
+</ul>
+
+<div class="btn-container bg-second">
+  <%= link_to 'Add new', new_time_entry_path, class: 'btn btn-second' %>
+</div>

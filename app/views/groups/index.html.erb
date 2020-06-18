@@ -1,0 +1,10 @@
+<% provide(:title, 'Groups') %>
+<p id="notice"><%= notice %></p>
+
+<ul class="index-ul">
+  <%= render @groups %>
+</ul>
+
+<div class="btn-container bg-second">
+  <%= link_to 'Add new', new_group_path, class: 'btn btn-second' %>
+</div>

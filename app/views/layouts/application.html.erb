@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CapstoneProject</title>
+    <title>Capstone Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap' %>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body>
-    <%= yield %>
+
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar" class="active">
+
+        <div class="sidebar-header">
+
+          <div class="main-avatar-wrapper">
+            <%= image_tag(user_image, alt: "default", class: "gravatar", id: "img-prev") %>
+          </div>
+
+          <h3 class="text-center"><%= current_user.full_name %></h3>
+          <h4 class="text-center">@<%= current_user.name %></h4>
+        </div>
+
+        <ul class="list-unstyled components fa-ul">
+          <li>
+            <span class="fa-li"><i class="far fa-clock"></i></span>
+            <%= link_to 'All my transactions', my_time_entries_path, class: "dropdown-toggle" %>
+          </li>
+          <li>
+            <span class="fa-li"><i class="far fa-question-circle"></i></span>
+            <%= link_to 'All my external transactions', time_entries_path, class: "dropdown-toggle" %>
+          </li>
+          <li>
+            <span class="fa-li"><i class="far fa-object-group"></i></span>
+            <%= link_to 'All groups', groups_path, class: "dropdown-toggle" %>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fas fa-sign-out-alt"></i></span>
+            <%= link_to "Log out", logout_path, method: :delete %>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Page Content  -->
+
+      <div id="content">
+        <nav class="navb bg-main">
+          <div>
+            <a id="sidebarCollapse" class="btn text-white" type="button" id="menu-toggle">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+          <div>
+          <h1 class="text-center text-uppercase page-title"><%= yield(:title) %></h1>
+          </div>
+          <div>
+            <a class="btn text-white" type="button" id="menu-toggle">
+              <i class="fas fa-search"></i>
+            </a>
+          </div>
+        </nav>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>  
   </body>
 </html>

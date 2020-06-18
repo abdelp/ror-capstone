@@ -1,0 +1,48 @@
+<div class="row text-center">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: user, local: true, id: 'new_user', class: 'form') do |form| %>
+      <%= form.hidden_field(:gravatar_url_cache) %>
+
+      <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="gravatar_edit">
+          <div class="avatar-wrapper">
+            <%= image_tag('default-profile.png', alt: "default", class: "gravatar", id: "img-prev") %>
+          </div>
+          <%= button_tag "Upload image", class: "btn btn-default", type: "button",id: "change-img-btn" %>
+          <%= form.file_field :gravatar_url, placeholder: 'Upload picture', id: "change-img-field", onchange: "changeImg(this);" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.text_field :full_name, class: 'form-control', placeholder: 'Full name' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Username' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.email_field :email, class: 'form-control', placeholder: 'Email' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.password_field :password, class: 'form-control', placeholder: 'Password' %>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit "Signup", class: "btn btn-primary"  %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<% provide(:title, 'Time Entry') %>
+<% provide(:forwarding_url, time_entries_path) %>
+
+<div class="show-container">
+  <div class="details">
+    <div class="row">
+      <strong>Description:</strong>
+      <%= @time_entry.name %>
+    </div>
+
+    <div class="row">
+      <strong>Start time:</strong>
+      <%= format_datetime(@time_entry.start_time) %>
+    </div>
+
+    <div class="row">
+      <strong>End time:</strong>
+      <%= format_datetime(@time_entry.end_time) %>
+    </div>
+
+    <div class="row">
+      <strong>Total time:</strong>
+      <%= @time_entry.amount %>
+    </div>
+
+    <div class="row">
+      <strong>Group:</strong>
+      <%= @time_entry.group.name unless @time_entry.group.nil?  %>
+    </div>
+
+    <div class="row">
+      <strong>Author:</strong>
+      <%= @time_entry.author.name %>
+    </div>
+  </div>
+</div>
+
+<div class="btn-container">
+  <%= link_to 'Edit', edit_time_entry_path(@time_entry), class: 'btn btn-green' %>
+</div>
+
+<%= link_to 'Back', time_entries_path %>
