@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
       log_in user
       redirect_back_or my_time_entries_path
     else
-      flash[:danger] = 'Invalid username'
+      flash[:danger] = 'Invalid email and password combination'
       redirect_back(fallback_location: login_path)
     end
   end
