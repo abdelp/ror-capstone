@@ -17,8 +17,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.new(full_name: user_params[:full_name], name: user_params[:name],
-                     email: user_params[:email], password: [:password])
+    @user = User.new(user_params)
 
     unless user_params[:gravatar_url].nil?
       uploaded_file = Cloudinary::Uploader.upload(user_params[:gravatar_url])
@@ -64,7 +63,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:full_name, :name, :email, :password, :gravatar_url)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :gravatar_url)
   end
 
   def set_user

@@ -10,10 +10,10 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
 
       within('#new_user') do
         attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
-        fill_in 'Full name', with: user[:full_name]
-        fill_in 'Username', with: user[:name]
+        fill_in 'Full name', with: user[:name]
         fill_in 'Email', with: user[:email]
         fill_in 'Password', with: user[:password]
+        fill_in 'Confirm password', with: user[:password]
       end
 
       click_button 'Signup'
@@ -21,29 +21,13 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       expect(page.get_rack_session_key('user_id')).to eq(1)
     end
 
-    it 'rejects user registration when full name is not specified' do
-      visit signup_path
-
-      within('#new_user') do
-        attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
-        fill_in 'Username', with: user[:name]
-        fill_in 'Email', with: user[:email]
-        fill_in 'Password', with: user[:password]
-      end
-
-      click_button 'Signup'
-      sleep(3)
-      expect(page).to have_content("Full name can't be blank")
-    end
-
     it 'rejects user registration when name is not specified' do
       visit signup_path
 
       within('#new_user') do
-        attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
-        fill_in 'Full name', with: user[:full_name]
         fill_in 'Email', with: user[:email]
         fill_in 'Password', with: user[:password]
+        fill_in 'Confirm password', with: user[:password]
       end
 
       click_button 'Signup'
@@ -51,13 +35,26 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       expect(page).to have_content("Name can't be blank")
     end
 
+    it 'rejects user registration when password doesn\'t match password confirmation' do
+      visit signup_path
+
+      within('#new_user') do
+        fill_in 'Full name', with: user[:name]
+        fill_in 'Email', with: user[:email]
+        fill_in 'Password', with: user[:password]
+        fill_in 'Confirm password', with: 'another_password'
+      end
+
+      click_button 'Signup'
+      sleep(3)
+      expect(page).to have_content("Password confirmation doesn't match Password")
+    end
+
     it 'rejects user registration when email is not specified' do
       visit signup_path
 
       within('#new_user') do
-        attach_file('change-img-field', '/tmp/profile.png', make_visible: true)
-        fill_in 'Full name', with: user[:full_name]
-        fill_in 'Username', with: user[:name]
+        fill_in 'Full name', with: user[:name]
         fill_in 'Password', with: user[:password]
       end
 
@@ -66,10 +63,11 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       expect(page).to have_content("Email can't be blank")
     end
 
-    it 'user can login with just username' do
+    it 'user can login with email and password' do
       visit login_path
       within('#login_form') do
-        fill_in 'Username', with: user_login.name
+        fill_in 'Email', with: user_login.email
+        fill_in 'Password', with: '123456'
       end
 
       click_button 'Log in'
@@ -77,24 +75,40 @@ RSpec.describe User, driver: :selenium_chrome, js: true do
       expect(page.get_rack_session_key('user_id')).to eq(2)
     end
 
-    it 'rejects user access when it is not provided a username' do
-      visit login_path
-
-      click_button 'Log in'
-      sleep(3)
-      expect(page).to have_content('Invalid username')
-    end
-
-    it 'rejects user access when username is not registered' do
+    it 'rejects user access when it is not provided the email' do
       visit login_path
 
       within('#login_form') do
-        fill_in 'Username', with: 'inexistent_user'
+        fill_in 'Password', with: '123456'
+      end
+      click_button 'Log in'
+      sleep(3)
+      expect(page).to have_content('Invalid email and password combination')
+    end
+
+    it 'rejects user access when email is not registered' do
+      visit login_path
+
+      within('#login_form') do
+        fill_in 'Email', with: 'inexistent_user@test.com'
+        fill_in 'Password', with: '123456'
       end
 
       click_button 'Log in'
       sleep(3)
-      expect(page).to have_content('Invalid username')
+      expect(page).to have_content('Invalid email and password combination')
+    end
+
+    it 'rejects user access when password is not provided' do
+      visit login_path
+
+      within('#login_form') do
+        fill_in 'Email', with: 'inexistent_user@test.com'
+      end
+
+      click_button 'Log in'
+      sleep(3)
+      expect(page).to have_content('Invalid email and password combination')
     end
 
     it 'logout user' do
