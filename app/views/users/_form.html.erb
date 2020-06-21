@@ -25,11 +25,7 @@
       </div>
 
       <div class="form-group">
-        <%= form.text_field :full_name, class: 'form-control', placeholder: 'Full name' %>
-      </div>
-
-      <div class="form-group">
-        <%= form.text_field :name, class: 'form-control', placeholder: 'Username' %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Full name' %>
       </div>
 
       <div class="form-group">
@@ -40,6 +36,10 @@
         <%= form.password_field :password, class: 'form-control', placeholder: 'Password' %>
       </div>
   
+      <div class="form-group">
+        <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm password' %>
+      </div>
+
       <div class="actions">
         <%= form.submit "Signup", class: "btn btn-primary"  %>
       </div>
