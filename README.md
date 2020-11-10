@@ -7,8 +7,10 @@
 - Ruby >= 2.6.5
 - Rails >= 6.0.3
 - Postgres >= 9.5
-- Bootstrap >= 3
 - Javascript
+- HTML5
+- CSS3
+- Bootstrap >= 3
 
 ## Video Presentation
 
