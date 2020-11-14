@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'
 
