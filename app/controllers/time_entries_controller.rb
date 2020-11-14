@@ -4,6 +4,8 @@ class TimeEntriesController < ApplicationController
   before_action :set_group_options, only: %i[new edit]
   layout 'logged_out', only: %i[new edit]
 
+  before_action :authenticate_user!
+
   def index
     @current_user = current_user
   end

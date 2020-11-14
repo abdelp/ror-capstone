@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :logged_in_user, only: %i[index edit update destroy
                                           following followers]
+  before_action :authenticate_user!
+
   def index
     @users = User.all
   end
@@ -57,6 +59,7 @@ class UsersController < ApplicationController
   end
 
   def my_time_entries
+    p "current: #{current_user}"
     @time_entries = current_user.time_entries.includes(:group)
   end
 
