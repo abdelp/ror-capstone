@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resources :time_entries
   end
 
-  root to: 'users#index'
+  root to: 'users#my_time_entries'
 end
