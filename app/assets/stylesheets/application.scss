@@ -405,3 +405,8 @@ a.article:hover {
   transition: all 0.3s;
   background-color: var(--light-gray);
 }
+
+.session-link,
+.session-link:visited {
+  color: var(--main);
+}
