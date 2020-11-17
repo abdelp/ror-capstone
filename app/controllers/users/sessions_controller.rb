@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
   layout 'logged_out'
   # before_action :configure_sign_in_params, only: [:create]
