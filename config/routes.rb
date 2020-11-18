@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
-
   devise_for :users,
     controllers: {
       sessions: 'users/sessions',
@@ -10,16 +6,7 @@ Rails.application.routes.draw do
       passwords: 'users/passwords'
     },
     path: 'auth'
-    # ,
-    # path_names: {
-    #   sign_in: 'login',
-    #   sign_out: 'logout',
-    #   password: 'secret',
-    #   confirmation: 'verification',
-    #   registration: 'register',
-    # }
 
-  # get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'
 
   get 'user_session/create'
