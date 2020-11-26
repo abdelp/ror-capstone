@@ -10,4 +10,5 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   has_one_attached :avatar
+  devise :omniauthable, omniauth_providers: %i[facebook]
 end
