@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_image
-    current_user.gravatar_url || 'default-profile.png'
+    current_user.avatar.attached? || 'default-profile.png'
   end
 
   def group_icon(group)
