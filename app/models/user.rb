@@ -20,7 +20,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
 
-      url = "https://graph.facebook.com/v4.0/10224315028492218/picture?access_token=EAAPhFIKqb2IBAO6ekZAGnQyoqkxrmoBRAN8Qfc115SJkOzu5wOmCZB6C7IKtql3ZCIEw8NU66RXrmoFZAszU6G3VeXaz7KHZAmS2NVzF5uRKTEonQ43r1ZB8q1otb5MUmEW7YySXcINREet1xG8i1II5apMif97TAxpMoqDXwz9AZDZD"
+      url = auth.info.image
 
       begin
         file = File.open('user_avatar.jpeg', 'wb') do |file|
