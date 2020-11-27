@@ -108,6 +108,8 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.13.1)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -319,6 +321,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 5.2)
   faker (~> 2.12)
+  figaro (~> 1.2)
   font-awesome-sass (~> 5.13)
   jbuilder (~> 2.7)
   listen (~> 3.2)
