@@ -450,3 +450,7 @@ a.article:hover {
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
 }
+
+.btn-facebook {
+  @extend .btn-primary;
+}
