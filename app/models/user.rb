@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ApplicationRecord
   include Rails.application.routes.url_helpers
   # Include default devise modules. Others available are:
@@ -11,4 +13,31 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   devise :omniauthable, omniauth_providers: %i[facebook]
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+
+      url = "https://graph.facebook.com/v4.0/10224315028492218/picture?access_token=EAAPhFIKqb2IBAO6ekZAGnQyoqkxrmoBRAN8Qfc115SJkOzu5wOmCZB6C7IKtql3ZCIEw8NU66RXrmoFZAszU6G3VeXaz7KHZAmS2NVzF5uRKTEonQ43r1ZB8q1otb5MUmEW7YySXcINREet1xG8i1II5apMif97TAxpMoqDXwz9AZDZD"
+
+      begin
+        file = File.open('user_avatar.jpeg', 'wb') do |file|
+          file << open(url).read
+        end
+        user.avatar.attach(io: File.open(file), filename: 'user_avatar.jpeg')
+      rescue Exception => e
+        p e.message, e.backtrace.inspect
+      end
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 end
