@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_image
-    current_user.avatar.attached? || 'default-profile.png'
+    current_user.avatar.attached? ? current_user.avatar : 'default-profile.png'
   end
 
   def group_icon(group)
