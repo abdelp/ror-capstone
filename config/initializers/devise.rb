@@ -273,7 +273,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['facebook_app_id'], ENV['facebook_app_secret'],
-    callback_url: 'https://whispering-retreat-92662.herokuapp.com/auth/auth/facebook/callback'
+    callback_url: ENV['callback']
 
 
   # ==> Warden configuration
