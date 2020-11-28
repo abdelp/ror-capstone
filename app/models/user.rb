@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
   before_save { self.email = email.downcase }
+  # before_create :add_to_list
 
   has_one_attached :avatar
   devise :omniauthable, omniauth_providers: %i[facebook]
@@ -41,4 +42,10 @@ class User < ApplicationRecord
       end
     end
   end
+
+  # def add_to_list
+  #   list_id = '3931f5bbf9'
+  #   @gb = Gibbon::Request.new
+  #   subscribe = @gb.lists(list_id).members.create(body: { email_address: email, status: 'subscribed', double_optin: false })
+  # end
 end
