@@ -71,6 +71,6 @@ Rails.application.configure do
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :user_name => ENV['mailchimp_user'],
-    :password  => EVN['mailchimp_password']
+    :password  => ENV['mailchimp_password']
   }
 end
