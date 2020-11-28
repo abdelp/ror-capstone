@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :time_entries, inverse_of: 'author', foreign_key: :author_id, dependent: :destroy
   has_many :groups, dependent: :destroy
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
-  before_save { self.email = email.downcase }
   # before_create :add_to_list
 
   has_one_attached :avatar
@@ -18,6 +17,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.skip_confirmation!
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
