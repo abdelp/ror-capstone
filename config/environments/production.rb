@@ -113,17 +113,16 @@ Rails.application.configure do
   # Devise
   config.action_mailer.default_url_options = { host: 'https://whispering-retreat-92662.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
     :address   => "smtp.sendgrid.net",
     :port      => 587,
     :authentication => :plain,
-    :user_name => ENV['sendgrid_user'],
-    :password  => ENV['sendgrid_api_key'],
-    :domain => 'heroku.com',
+    :user_name => ENV['sendgrid_username'],
+    :password  => ENV['SENDGRID_API_KEY'],
     :enable_starttls_auto => true
   }
 end
