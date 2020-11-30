@@ -59,7 +59,6 @@ RSpec.configure do |config|
   config.include FeatureHelpers, type: :feature
   # config.include RailsAdmin::Engine.routes.url_helpers
   config.include Rails.application.routes.url_helpers
-
 end
 
 Shoulda::Matchers.configure do |config|
