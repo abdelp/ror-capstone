@@ -2,8 +2,6 @@ require 'open-uri'
 
 class User < ApplicationRecord
   include Rails.application.routes.url_helpers
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
@@ -46,6 +44,10 @@ class User < ApplicationRecord
   # def add_to_list
   #   list_id = '3931f5bbf9'
   #   @gb = Gibbon::Request.new
-  #   subscribe = @gb.lists(list_id).members.create(body: { email_address: email, status: 'subscribed', double_optin: false })
+  #   subscribe = @gb.lists(list_id).members.create(body: {
+  #     email_address: email,
+  #     status: 'subscribed',
+  #     double_optin: false
+  #   })
   # end
 end
