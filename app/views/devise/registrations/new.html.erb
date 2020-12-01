@@ -14,6 +14,7 @@
           <%= f.file_field :avatar,
             placeholder: 'Upload picture',
             id: "change-img-field",
+            accept: "image/x-png,image/gif,image/jpeg"
             onchange: "changeImg(this);",
             direct_upload: true
            %>
