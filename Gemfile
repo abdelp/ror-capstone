@@ -57,4 +57,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'cloudinary', '~> 1.14'
+gem 'devise'
+gem 'figaro', '~> 1.2'
 gem 'font-awesome-sass', '~> 5.13'
+gem 'gibbon', '~> 3.3', '>= 3.3.4'
+gem 'omniauth-facebook', '~> 8.0'
+gem 'sendgrid-ruby', '~> 6.3', '>= 6.3.7'

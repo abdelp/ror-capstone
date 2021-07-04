@@ -5,6 +5,8 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'support/feature_helpers'
+require 'support/url_helpers'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -49,6 +51,14 @@ RSpec.configure do |config|
   config.after(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include FeatureHelpers, type: :feature
+  # config.include RailsAdmin::Engine.routes.url_helpers
+  config.include Rails.application.routes.url_helpers
 end
 
 Shoulda::Matchers.configure do |config|

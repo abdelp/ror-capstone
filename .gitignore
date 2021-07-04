@@ -35,3 +35,8 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/user_avatar.jpeg
+/config/initializers/devise.rb
+# Ignore application configuration
+/config/application.yml

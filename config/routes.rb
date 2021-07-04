@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  get '/login', to: 'user_sessions#new'
+  devise_for :users,
+    controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      passwords: 'users/passwords',
+      omniauth_callbacks: 'users/omniauth_callbacks',
+      confirmations: 'users/confirmations'
+    },
+    path: 'auth'
+
   post '/login', to: 'user_sessions#create'
 
   get 'user_session/create'
@@ -18,5 +27,5 @@ Rails.application.routes.draw do
     resources :time_entries
   end
 
-  root to: 'users#index'
+  root to: 'users#my_time_entries'
 end

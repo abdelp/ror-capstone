@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include UserSessionsHelper
+  protect_from_forgery
 
-  private
+  protected
 
-  def logged_in_user
-    store_location unless logged_in?
-    flash[:danger] = 'Please log in.' unless logged_in?
-    redirect_to login_url unless logged_in?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name avatar])
   end
 end
